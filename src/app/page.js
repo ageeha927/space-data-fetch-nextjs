@@ -8,7 +8,6 @@ const fetcher = (url) => fetch(url).then((res) => res.json())
 export default function Home() {
   const [date, setDate] = useState('')
   
-  //SWR to fetch data
   const { data, error, isLoading } = useSWR(
     date ? `/api/apod?date=${date}` : '/api/apod',
     fetcher
@@ -24,7 +23,7 @@ export default function Home() {
       
       <div className="mb-6">
         <label htmlFor="date" className="block mb-2 font-medium">
-          Select a date (or leave empty for today's image):
+          Select a date:
         </label>
         <input 
           type="date" 
